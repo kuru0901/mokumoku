@@ -57,7 +57,7 @@
         <div class="card-body">
           <div class="d-flex align-items-center gap-3 mb-3">
             <%= image_tag @event.user.decorate.avatar, class: 'rounded-circle avatar-lg' %>
-            <%= @event.user.name %>
+            <%= link_to @event.user.name, user_path(@event.user) %>
           </div>
           <div class="p-3 bg-light">
             イベント数
@@ -108,7 +108,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="bi bi-people"></i>
-          参加者（<%= @event.attendees.size %>人）
+          参加者   :<%= @event.attendees.size %>人 ( 男<%= @event.attendees.male.size %> , 女<%= @event.attendees.female.size %> , 他/未設定<%= @event.attendees.unselected.size + @event.attendees.other.size %> ) 
         </div>
         <div class="card-body">
            <ul class="list-unstyled">
